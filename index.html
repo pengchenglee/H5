@@ -134,12 +134,12 @@
     var beyond = document.querySelector("#beyond");
     window.setTimeout(function(){
         beyond.play();
-        beyond.addEventListener("canplay",function(){
-            music.style.opacity ="1";
-            music.className = "music musicCur";
-        },false)
-    },1000)
 
+    },1000);
+    beyond.addEventListener("canplay",function(){
+        music.style.opacity ="1";
+        music.className = "music musicCur";
+    },false)
     music.addEventListener("click",function(){
 
         if(beyond.paused){
