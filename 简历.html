@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth /640 * 100 + 'px';
+    </script>
+</head>
+<body>
+
+<article class="main">
+      <div class="music">
+          <audio src="audio/毕业了一无所有.mp3" preload="none" loop id="beyond"></audio>
+      </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1" >
+                <div class="bg"><img src="images/bg.jpg" alt=""></div>
+                <span class="china">
+                    <p>个人简历</p>
+                </span>
+                <span class="english">
+                    Personal Resume
+                </span>
+                <div class="bottom">
+                    <p>Hi!</p>
+                    <p>您好</p>
+                    <p>我叫李鹏城</p>
+                    <p>正在寻找前端工程师的工作</p>
+                </div>
+                <div class="head"><img src="images/IMG_0649.JPG" alt=""></div>
+                <div class="icon"></div>
+            </div>
+            <div class="swiper-slide slide2" >
+            <div class="bg"><img src="images/zf_cubeBg.jpg" alt=""></div>
+            <div class="me"><img src="images/IMG_0649.JPG" alt=""></div>
+            <p>姓名：李鹏城</p>
+
+            <p>性别：男</p>
+
+            <p>年龄:22岁</p>
+
+            <p>毕业于天津机电职业技术学院</p>
+
+            <p>联系电话：18812673411</p>
+
+            <i>收获永远等价于付出</i>
+            <div class="icon"></div>
+            <div><img src="images/mcd.gif" alt=""></div>
+
+        </div>
+            <div class="swiper-slide slide3" >
+                <p>技能法宝</p>
+                <p>JS</p>
+                <p>NODE</p>
+                <p>angular</p>
+                <p>jQuery</p>
+                <p>HTML5</p>
+                <p>CSS3</p>
+                <p>熟练</p>
+                <p>掌握</p>
+                <img src="images/dmt-1.png" alt="">
+                <img src="images/dmt-1.png" alt="">
+                <img src="images/dmt-1.png" alt="">
+                <img src="images/dmt-1.png" alt="">
+                <img src="images/dmt-1.png" alt="">
+                <img src="images/dmt-1.png" alt="">
+                <img src="images/dmt-1.png" alt="">
+                <img src="images/bg-3.png" alt="">
+                <div class="icon"></div>
+            </div>
+            <div class="swiper-slide slide4">
+                <div class="cube">
+                    <ul class="cubeBox">
+                        <li><img src="images/mf-1.jpg" alt=""/></li>
+                        <li><img src="images/mf-2.jpg" alt=""/></li>
+                        <li><img src="images/mf-3.jpg" alt=""/></li>
+                        <li><img src="images/mf-4.jpg" alt=""/></li>
+                        <li><img src="images/mf-5.jpg" alt=""/></li>
+                        <li><img src="images/mf-6.jpg" alt=""/></li>
+                    </ul>
+                    <img src="images/bg-3.png" alt="">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="swiper-slide slide5">
+                <img src="images/IMG_0867.JPG" alt="">
+                <p>期待您的来电</p>
+                <p>------ 18812673411 ------</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</article>
+</body>
+</html>
+<script src="js/swiper.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/cube.js"></script>
+<script>
+    var mySwiper = new Swiper(".swiper-container",{
+        direction:"vertical",
+        loop:true,
+        onTransitionEnd:function(swiper){
+            var curIndex = swiper.activeIndex;
+            var slides = swiper.slides;
+            [].forEach.call(slides,function(item,index){
+                item.id="";
+                if(index == curIndex){
+                    switch(index){
+                        case 0:
+                            item.id = "page"+(slides.length-2);
+                            break;
+                        case slides.length-1:
+                            item.id = "page1";
+                            break;
+                        default :
+                            item.id = "page"+curIndex
+                    }
+
+                }
+            })
+        }
+    });
+    var music = document.querySelector(".music");
+    var beyond = document.querySelector("#beyond");
+    window.setTimeout(function(){
+        beyond.play();
+        beyond.addEventListener("canplay",function(){
+            music.style.opacity ="1";
+            music.className = "music musicCur";
+        },false)
+    },1000)
+
+    music.addEventListener("click",function(){
+
+        if(beyond.paused){
+            beyond.play();
+            music.className  = "music musicCur";
+        }else{
+            beyond.pause();
+            music.className = "music";
+        }
+    },false)
+</script>
